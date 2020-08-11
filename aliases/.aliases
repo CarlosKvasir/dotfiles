@@ -1,0 +1,15 @@
+# My aliases
+alias ls='ls --color=auto'
+alias ll='ls -la'
+alias l.='ls -d .* --color=auto'
+alias c='clear'
+alias gp='git push'
+
+# Copy with progressbar
+alias cpv='rsync -ah --info=progress2'
+
+#Make dir and cd into
+mkcd ()
+{
+  mkdir -p -- "$1" && cd -P -- "$1"
+}
