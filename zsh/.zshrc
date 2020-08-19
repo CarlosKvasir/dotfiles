@@ -8,16 +8,16 @@ fi
 source ~/.zplug/init.zsh
 
 # Make sure to use double quotes to prevent shell expansion
-zplug "buonomo/yarn-completion", defer:10
+zplug "plugins/asdf", from:oh-my-zsh
 zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
+zplug "plugins/virtualenv", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/sudo", from:oh-my-zsh
-zplug "plugins/asdf", from:oh-my-zsh
-zplug "plugins/virtualenv", from:oh-my-zsh
 zplug "zdharma/fast-syntax-highlighting"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-history-substring-search"
+zplug "g-plane/zsh-yarn-autocompletions", hook-build:"./zplug.zsh", defer:2
 
 # spaceship-prompt config
 SPACESHIP_PROMPT_ORDER=(
@@ -80,11 +80,6 @@ fi
 
 zplug load
 
-# add yarn in path
-export PATH="$PATH:`yarn global bin`"
 
 # add flutter
 export PATH="$PATH:/home/carlos/development/flutter/bin"
-
-export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
-
