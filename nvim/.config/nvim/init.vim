@@ -29,6 +29,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " ----------------------------------------------------------
 "    THIS IS WHERE YOUR PLUGINS WILL COME
 " ----------------------------------------------------------
+NeoBundle 'neoclide/coc.nvim', {'branch': 'release'}
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'wikitopian/hardmode'
@@ -88,13 +89,17 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 
 " ----------------------------------------------------------
-"         Multiple Cursors
+"         COC config
 " ----------------------------------------------------------
-let g:multi_cursor_next_key='<C-n>'
-let g:multi_cursor_prev_key='<C-p>'
-let g:multi_cursor_skip_key='<C-x>'
-let g:multi_cursor_quit_key='<Esc>'
-
+let g:coc_global_extension = [
+  \ 'coc-snippets',
+  \ 'coc-pairs',
+  \ 'coc-tsserver',
+  \ 'coc-eslint',
+  \ 'coc-prettier',
+  \ 'coc-json',
+  \ ]
+let g:python3_host_prog = expand('~/.asdf/shims/python3.8')
 " ---------------------------------------------------------
 "         Configs to Use buffers in tabs
 " ---------------------------------------------------------
