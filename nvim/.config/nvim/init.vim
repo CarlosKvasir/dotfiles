@@ -1,57 +1,44 @@
 " ----------------------------------------------------------
-"         TRUECOLOR ENABLE
+"       TRUECOLOR ENABLE
 " ----------------------------------------------------------
 if has ("termguicolors")
     set termguicolors
 endif
 
 " ----------------------------------------------------------
-"         NeoBundle Scripts
+"       Plug Scripts autoinstall & load
 " ----------------------------------------------------------
-if has('vim_starting')
-  set runtimepath+=~/.config/nvim/bundle/neobundle.vim/
-  set runtimepath+=~/.config/nvim/
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-let neobundle_readme=expand('~/.config/nvim/bundle/neobundle.vim/README.md')
-
-if !filereadable(neobundle_readme)
-  echo "Installing NeoBundle..."
-  echo ""
-  silent !mkdir -p ~/.config/nvim/bundle
-  silent !git clone https://github.com/Shougo/neobundle.vim ~/.config/nvim/bundle/neobundle.vim/
-  let g:not_finsh_neobundle = "yes"
-endif
-
-call neobundle#begin(expand('$HOME/.config/nvim/bundle'))
-NeoBundleFetch 'Shougo/neobundle.vim'
+call plug#begin('~/.config/nvim/plugged')
 
 " ----------------------------------------------------------
-"    THIS IS WHERE YOUR PLUGINS WILL COME
+"       THIS IS WHERE YOUR PLUGINS WILL COME
 " ----------------------------------------------------------
-NeoBundle 'neoclide/coc.nvim', {'branch': 'release'}
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'vim-airline/vim-airline'
-NeoBundle 'wikitopian/hardmode'
-NeoBundle 'vim-airline/vim-airline-themes'
-NeoBundle 'dracula/vim'
-NeoBundle 'wakatime/vim-wakatime'
-NeoBundle 'elixir-editors/vim-elixir'
-call neobundle#end()
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'scrooloose/nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'wikitopian/hardmode'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'rakr/vim-one'
+Plug 'wakatime/vim-wakatime'
+Plug 'elixir-editors/vim-elixir',{'for': 'elixir'}
+" Plugin outside ~/.vim/plugged with post-update hook
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+call plug#end()
 filetype plugin indent on
 
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
-" End NeoBundle Scripts ------------------------------------
-
 " ----------------------------------------------------------
-"         CONFIGS
+"       CONFIGS
 " ----------------------------------------------------------
 set nu              "Mostra número de linhas
 set relativenumber  "Mostra números relativos
 set background=dark
-colorscheme dracula
+colorscheme one
 
 syntax on
 set autoindent
@@ -63,20 +50,12 @@ set softtabstop=4
 set shiftwidth=4
 
 set visualbell
-"set title
+set title
 set sm              "substituição magica ???
 set incsearch
 
 " ----------------------------------------------------------
-"         Melhorar movimentação
-" ----------------------------------------------------------
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
-
-" ----------------------------------------------------------
-"         STATUS BAR Vim-Airline
+"       STATUS BAR Vim-Airline
 " ----------------------------------------------------------
 set laststatus=2
 let g:airline_powerline_fonts = 1
@@ -89,7 +68,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 
 " ----------------------------------------------------------
-"         COC config
+"       COC config
 " ----------------------------------------------------------
 let g:coc_global_extension = [
   \ 'coc-snippets',
@@ -101,7 +80,7 @@ let g:coc_global_extension = [
   \ ]
 let g:python3_host_prog = expand('~/.asdf/shims/python3.8')
 " ---------------------------------------------------------
-"         Configs to Use buffers in tabs
+"       Configs to Use buffers in tabs
 " ---------------------------------------------------------
 " This allows buffers to be hidden if you've modified a buffer.
 " This is almost a must if you wish to use buffers in this way.
@@ -125,7 +104,4 @@ nmap <leader>x :bp <BAR> bd #<CR>
 
 " Show all open buffers and their status
 nmap <leader>bl :ls<CR>
-
-"-- FzF
-set rtp+=~/.fzf
 
