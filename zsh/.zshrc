@@ -83,3 +83,5 @@ zplug load
 
 # add flutter
 export PATH="$PATH:/home/carlos/development/flutter/bin"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
