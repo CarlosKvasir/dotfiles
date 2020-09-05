@@ -5,6 +5,9 @@ alias l.='ls -d .* --color=auto'
 alias c='clear'
 alias gp='git push'
 
+#alias nodejs to node
+alias nodejs='node'
+
 # Copy with progressbar
 alias cpv='rsync -ah --info=progress2'
 
