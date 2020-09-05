@@ -17,7 +17,7 @@ zplug "zdharma/fast-syntax-highlighting"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-history-substring-search"
-zplug "g-plane/zsh-yarn-autocompletions", hook-build:"./zplug.zsh", defer:2
+zplug "Tarrasch/zsh-bd"
 
 # spaceship-prompt config
 SPACESHIP_PROMPT_ORDER=(
@@ -85,3 +85,5 @@ zplug load
 export PATH="$PATH:/home/carlos/development/flutter/bin"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
