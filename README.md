@@ -3,7 +3,7 @@
 ## :arrow_right: How use
 ```zsh
 cd ~
-git clone git@github.com:CarlosKvasir/dotfiles.git .dotfiles
+git clone git@github.com:carloskvasir/dotfiles.git .dotfiles
 
 cd .dotfiles
 stow nvim
