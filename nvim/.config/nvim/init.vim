@@ -1,11 +1,4 @@
 " ----------------------------------------------------------
-"       TRUECOLOR ENABLE
-" ----------------------------------------------------------
-if has ("termguicolors")
-    set termguicolors
-endif
-
-" ----------------------------------------------------------
 "       Plug Scripts autoinstall & load
 " ----------------------------------------------------------
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
@@ -14,23 +7,24 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin('~/.config/nvim/plugged')
-
 " ----------------------------------------------------------
 "       THIS IS WHERE YOUR PLUGINS WILL COME
 " ----------------------------------------------------------
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'scrooloose/nerdtree'
+call plug#begin('~/.config/nvim/plugged')
 Plug 'vim-airline/vim-airline'
-Plug 'wikitopian/hardmode'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'rakr/vim-one'
+Plug 'arcticicestudio/nord-vim'
+Plug 'scrooloose/nerdtree'
 Plug 'wakatime/vim-wakatime'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'elixir-editors/vim-elixir',{'for': 'elixir'}
-" Plugin outside ~/.vim/plugged with post-update hook
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 call plug#end()
-filetype plugin indent on
+
+" ----------------------------------------------------------
+"       TRUECOLOR ENABLE
+" ----------------------------------------------------------
+if has ("termguicolors")
+    set termguicolors
+endif
 
 " ----------------------------------------------------------
 "       CONFIGS
@@ -38,7 +32,7 @@ filetype plugin indent on
 set nu              "Mostra número de linhas
 set relativenumber  "Mostra números relativos
 set background=dark
-colorscheme one
+colorscheme nord
 
 syntax on
 set autoindent
@@ -59,7 +53,7 @@ set incsearch
 " ----------------------------------------------------------
 set laststatus=2
 let g:airline_powerline_fonts = 1
-let g:airline_theme='simple'
+let g:airline_theme='nord'
 
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
@@ -79,6 +73,7 @@ let g:coc_global_extension = [
   \ 'coc-json',
   \ ]
 let g:python3_host_prog = expand('~/.asdf/shims/python3.8')
+
 " ---------------------------------------------------------
 "       Configs to Use buffers in tabs
 " ---------------------------------------------------------
@@ -101,7 +96,5 @@ nmap <leader>L :bprevious<CR>
 " This replicates the idea of closing a tab
 nmap <leader>x :bp <BAR> bd #<CR>
 
-
 " Show all open buffers and their status
 nmap <leader>bl :ls<CR>
-
