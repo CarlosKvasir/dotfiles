@@ -49,6 +49,8 @@ set title
 set sm              "substituição magica ???
 set incsearch
 
+set clipboard+=unnamedplus "Configure clipboard
+
 " ----------------------------------------------------------
 "       STATUS BAR Vim-Airline
 " ----------------------------------------------------------
