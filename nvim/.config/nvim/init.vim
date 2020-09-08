@@ -15,6 +15,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'arcticicestudio/nord-vim'
 Plug 'scrooloose/nerdtree'
 Plug 'wakatime/vim-wakatime'
+Plug 'tpope/vim-fugitive'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'elixir-editors/vim-elixir',{'for': 'elixir'}
 call plug#end()
