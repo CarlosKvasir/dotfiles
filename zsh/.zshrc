@@ -1,7 +1,7 @@
 # Check if zplug is installed
 if [[ ! -d ~/.zplug ]]; then
-  git clone https://github.com/zplug/zplug ~/.zplug
-  source ~/.zplug/init.zsh && zplug update --self
+    git clone https://github.com/zplug/zplug ~/.zplug
+    source ~/.zplug/init.zsh && zplug update --self
 fi
 
 # Essential
@@ -21,19 +21,19 @@ zplug "Tarrasch/zsh-bd"
 
 # spaceship-prompt config
 SPACESHIP_PROMPT_ORDER=(
-  venv          # virtualenv section
-  user          # Username section
-  dir           # Current directory section
-  host          # Hostname section
-  node          # NVM info
-  git           # Git section (git_branch + git_status)
-  hg            # Mercurial section (hg_branch  + hg_status)
-  exec_time     # Execution time
-  line_sep      # Line break
-  vi_mode       # Vi-mode indicator
-  jobs          # Background jobs indicator
-  exit_code     # Exit code section
-  char          # Prompt character
+    venv          # virtualenv section
+    user          # Username section
+    dir           # Current directory section
+    host          # Hostname section
+    node          # NVM info
+    git           # Git section (git_branch + git_status)
+    hg            # Mercurial section (hg_branch  + hg_status)
+    exec_time     # Execution time
+    line_sep      # Line break
+    vi_mode       # Vi-mode indicator
+    jobs          # Background jobs indicator
+    exit_code     # Exit code section
+    char          # Prompt character
 )
 SPACESHIP_USER_SHOW=always
 SPACESHIP_PROMPT_ADD_NEWLINE=false
@@ -41,13 +41,13 @@ SPACESHIP_CHAR_SYMBOL="❯"
 SPACESHIP_CHAR_SUFFIX=" "
 SPACESHIP_DIR_TRUNC=4
 
-# Config zsh-autosuggestions 
+# Config zsh-autosuggestions
 bindkey '^ ' autosuggest-execute
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # -- aliases from .aliases --
 if [ -f ~/.aliases ]; then
-	source ~/.aliases
+    source ~/.aliases
 fi
 
 # Comandos para gerenciar o historico
