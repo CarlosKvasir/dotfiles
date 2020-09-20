@@ -16,7 +16,8 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'scrooloose/nerdtree'
 Plug 'wakatime/vim-wakatime'
 Plug 'tpope/vim-fugitive'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'ryanoasis/vim-devicons'
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': 'yarn install --frozen-lockfile'}
 Plug 'elixir-editors/vim-elixir',{'for': 'elixir'}
 call plug#end()
 
@@ -73,6 +74,7 @@ let g:coc_global_extension = [
   \ 'coc-tsserver',
   \ 'coc-eslint',
   \ 'coc-prettier',
+  \ 'coc-emmet',
   \ 'coc-json',
   \ ]
 let g:python3_host_prog = expand('~/.asdf/shims/python3.8')
@@ -101,3 +103,4 @@ nmap <leader>x :bp <BAR> bd #<CR>
 
 " Show all open buffers and their status
 nmap <leader>bl :ls<CR>
+
