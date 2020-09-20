@@ -11,6 +11,10 @@ alias l.='ls -d .*'
 alias c='clear'
 alias gp='git push'
 
+# Using xsel
+alias pbcopy='xsel --clipboard --input'
+alias pbpaste='xsel --clipboard --output'
+
 #alias nodejs to node
 alias nodejs='node'
 
@@ -23,4 +27,4 @@ mkcd ()
   mkdir -p -- "$1" && cd -P -- "$1"
 }
 
-. ~/.asdf/plugins/java/set-java-home.zsh
+#. ~/.asdf/plugins/java/set-java-home.zsh
