@@ -12,10 +12,8 @@ endif
 " ----------------------------------------------------------
 call plug#begin('~/.config/nvim/plugged')
 Plug 'vim-airline/vim-airline'
-Plug 'arcticicestudio/nord-vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-fugitive'
 Plug 'ryanoasis/vim-devicons'
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': 'yarn install --frozen-lockfile'}
 Plug 'elixir-editors/vim-elixir',{'for': 'elixir'}
@@ -25,6 +23,9 @@ Plug 'tpope/vim-surround'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+Plug 'editorconfig/editorconfig-vim'
+Plug 'voldikss/vim-floaterm'
 call plug#end()
 
 " ----------------------------------------------------------
@@ -143,4 +144,18 @@ let NERDTreeQuitOnOpen = 1
 "let NERDTreeDirArrows = 1
 
 " Open NerdTree atach
-nnoremap <Leader>f :NERDTreeToggle<Enter>
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>fl <cmd>Telescope git_files<cr>
+
+source $HOME/.config/nvim/plug-config/floaterm.vim
+let NERDTreeIgnore=['\.git$', '\.idea$', '\.vscode$', '\.history$']
