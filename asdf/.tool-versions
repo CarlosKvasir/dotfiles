@@ -11,3 +11,4 @@ fzf 0.22.0
 maven 3.6.3
 rust 1.46.0
 neovim nightly
+tmux 3.1c
