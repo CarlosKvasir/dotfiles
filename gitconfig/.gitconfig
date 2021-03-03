@@ -2,11 +2,16 @@
 	email = carloskvasir@gmail.com
 	name = Carlos Lima (Kvasir)
 [core]
-	editor = code --wait 
+	editor = nvim 
+
+[push]
+    followTags = true
 [alias]
 	s = !git status -s
 	c = !git add --all && git commit -m
 	l = !git log --pretty=format:'%C(blue)%h %C(red)%d%C(white)%s - %C(cyan)%cn, %C(green)%cr'
+    amend = !git add --all && git commit --amend --no-edit
+    count = !git shortlog -s --grep
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
