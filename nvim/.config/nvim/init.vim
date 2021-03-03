@@ -23,9 +23,11 @@ Plug 'tpope/vim-surround'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'editorconfig/editorconfig-vim'
 Plug 'voldikss/vim-floaterm'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'airblade/vim-gitgutter'   "Add gutter whit git status
 call plug#end()
 
 " ----------------------------------------------------------
@@ -56,6 +58,10 @@ set visualbell
 set title
 set sm              "substituição magica ???
 set incsearch
+set nobackup        "This is recommend per coc
+set nowritebackup   "This is recommend per coc
+set autoindent      "Whats is this
+set smartindent     "Makes indenting smart
 
 set clipboard+=unnamedplus "Configure clipboard
 
@@ -112,6 +118,11 @@ nmap <leader>x :bp <BAR> bd #<CR>
 " Show all open buffers and their status
 nmap <leader>bl :ls<CR>
 
+" TAB in general mode will move to text buffer
+nnoremap <TAB> :bnext<CR>
+" SHIFT-TAB will go back
+nnoremap <S-TAB> :bprevious<CR>
+
 
 " ---------------------------------------------------------
 "       Config coc completion
@@ -129,6 +140,12 @@ inoremap <silent><expr> <Tab>
 
 " use <Enter> for trigger completion
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Better nav for omnicomplete
+inoremap <expr> <c-j> ("\<C-n>")
+inoremap <expr> <c-k> ("\<C-p>")
+
+" Jump to definition config
+nmap <silent> gd <Plug>(coc-definition)
 
 " ---------------------------------------------------------
 "       Config NerdTree
@@ -143,19 +160,8 @@ let NERDTreeQuitOnOpen = 1
 "let NERDTreeMinimalUI = 1
 "let NERDTreeDirArrows = 1
 
-" Open NerdTree atach
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
-
-
-" Find files using Telescope command-line sugar.
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-nnoremap <leader>fl <cmd>Telescope git_files<cr>
-
-source $HOME/.config/nvim/plug-config/floaterm.vim
+"--- Disable perl ---
+:let g:loaded_perl_provider = 0
+source $HOME/.config/nvim/keys.vim " keys biding
 let NERDTreeIgnore=['\.git$', '\.idea$', '\.vscode$', '\.history$']
+
