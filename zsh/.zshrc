@@ -14,6 +14,7 @@ zplug "plugins/virtualenv", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh
 zplug "Tarrasch/zsh-bd", from:github
 zplug "zsh-users/zsh-syntax-highlighting"
+zplug "aperezdc/zsh-fzy"
 
 # spaceship-prompt config
 SPACESHIP_PROMPT_ORDER=(
@@ -49,6 +50,8 @@ SPACESHIP_PROMPT_ADD_NEWLINE=false
 SPACESHIP_CHAR_SYMBOL="->"
 SPACESHIP_CHAR_SUFFIX=" "
 SPACESHIP_DIR_TRUNC=4
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
 
 # -- aliases from .aliases --
 if [ -f ~/.aliases ]; then
@@ -69,7 +72,14 @@ zplug load
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# ALT-C: cd into the selected directory
+# CTRL-T: Place the selected file path in the command line
+# CTRL-R: Place the selected command from history in the command line
+# CTRL-P: Place the selected process ID in the command line
+bindkey '\ec' fzy-cd-widget
+bindkey '^T'  fzy-file-widget
+bindkey '^R'  fzy-history-widget
+bindkey '^P'  fzy-proc-widget
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 source /home/carlos/.asdf/installs/rust/1.46.0/env
