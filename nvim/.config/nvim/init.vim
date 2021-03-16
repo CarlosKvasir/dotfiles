@@ -13,22 +13,28 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'arcticicestudio/nord-vim'
 Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': 'yarn install --frozen-lockfile'}
 Plug 'elixir-editors/vim-elixir',{'for': 'elixir'}
-Plug 'kdheepak/lazygit.nvim'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+"Plug 'kdheepak/lazygit.nvim'
+"Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-surround'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
-"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'editorconfig/editorconfig-vim'
-Plug 'voldikss/vim-floaterm'
+"Plug 'voldikss/vim-floaterm'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'airblade/vim-gitgutter'   "Add gutter whit git status
+Plug 'luochen1990/rainbow'
+Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-fugitive'
+Plug 'unblevable/quick-scope'
 call plug#end()
 
 " ----------------------------------------------------------
@@ -44,7 +50,7 @@ endif
 set nu              "Mostra número de linhas
 set relativenumber  "Mostra números relativos
 set background=dark
-colorscheme dracula
+colorscheme nord
 
 syntax on
 set autoindent
@@ -83,12 +89,14 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 "       COC config
 " ----------------------------------------------------------
 let g:coc_global_extensions = [
+  \ 'coc-diagnostic',
   \ 'coc-elixir',
   \ 'coc-emmet',
   \ 'coc-eslint',
   \ 'coc-json',
   \ 'coc-prettier',
   \ 'coc-snippets',
+  \ 'coc-solargraph',
   \ 'coc-tsserver'
   \ ]
 let g:python_host_prog = "$HOME/.asdf/shims/python2"
