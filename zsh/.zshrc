@@ -15,6 +15,7 @@ zplug "plugins/git", from:oh-my-zsh
 zplug "Tarrasch/zsh-bd", from:github
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "aperezdc/zsh-fzy"
+zplug "zsh-users/zsh-autosuggestions"
 
 # spaceship-prompt config
 SPACESHIP_PROMPT_ORDER=(
@@ -45,13 +46,16 @@ SPACESHIP_PROMPT_ORDER=(
     exit_code     # Exit code section
     char          # Prompt character
 )
-SPACESHIP_USER_SHOW=always
+SPACESHIP_USER_SHOW=false
 SPACESHIP_PROMPT_ADD_NEWLINE=false
 SPACESHIP_CHAR_SYMBOL="->"
 SPACESHIP_CHAR_SUFFIX=" "
-SPACESHIP_DIR_TRUNC=4
+SPACESHIP_DIR_TRUNC=8
+SPACESHIP_DIR_TRUNC_PREFIX='.../'
+SPACESHIP_PROMPT_DEFAULT_PREFIX="| "
 setopt INC_APPEND_HISTORY
-setopt SHARE_HISTORY
+HISTFILE=~/.history_zsh
+HISTSIZE=10000
 
 # -- aliases from .aliases --
 if [ -f ~/.aliases ]; then
