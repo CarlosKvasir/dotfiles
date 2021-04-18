@@ -8,14 +8,15 @@ fi
 source ~/.zplug/init.zsh
 
 # Make sure to use double quotes to prevent shell expansion
-zplug "plugins/asdf", from:oh-my-zsh
-zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
-zplug "plugins/virtualenv", from:oh-my-zsh
-zplug "plugins/git", from:oh-my-zsh
 zplug "Tarrasch/zsh-bd", from:github
-zplug "zsh-users/zsh-syntax-highlighting"
 zplug "aperezdc/zsh-fzy"
+zplug "buonomo/yarn-completion"
+zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
+zplug "plugins/asdf", from:oh-my-zsh
+zplug "plugins/git", from:oh-my-zsh
+zplug "plugins/virtualenv", from:oh-my-zsh
 zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-syntax-highlighting"
 
 # spaceship-prompt config
 SPACESHIP_PROMPT_ORDER=(
@@ -87,3 +88,5 @@ bindkey '^P'  fzy-proc-widget
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 source /home/carlos/.asdf/installs/rust/1.46.0/env
+export GOPATH="$HOME/go"
+export PATH="$PATH:${GOPATH//://bin:}/bin"
