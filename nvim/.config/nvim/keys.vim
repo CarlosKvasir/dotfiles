@@ -11,6 +11,6 @@ nnoremap <C-f> :NERDTreeFind<CR>
 nnoremap <space>e :CocCommand explorer <CR>
 
 " Config Fugitive
-nmap <leader>gh :diffget //3<CR>
-nmap <leader>gu :diffget //2<CR>
+"nmap <leader>gh :diffget //3<CR>
+"nmap <leader>gu :diffget //2<CR>
 nmap <leader>gs :G<CR>

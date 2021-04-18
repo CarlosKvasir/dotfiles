@@ -19,7 +19,6 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': 'yarn install --frozen-lockfile'}
 Plug 'elixir-editors/vim-elixir',{'for': 'elixir'}
 "Plug 'kdheepak/lazygit.nvim'
-"Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-surround'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -27,7 +26,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'editorconfig/editorconfig-vim'
-"Plug 'voldikss/vim-floaterm'
+Plug 'voldikss/vim-floaterm'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'airblade/vim-gitgutter'   "Add gutter whit git status
 Plug 'luochen1990/rainbow'
@@ -35,6 +34,8 @@ Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
 Plug 'unblevable/quick-scope'
+Plug 'fatih/vim-go'
+Plug 'tpope/vim-rails'
 call plug#end()
 
 " ----------------------------------------------------------
@@ -93,6 +94,7 @@ let g:coc_global_extensions = [
   \ 'coc-elixir',
   \ 'coc-emmet',
   \ 'coc-eslint',
+  \ 'coc-go',
   \ 'coc-json',
   \ 'coc-prettier',
   \ 'coc-snippets',

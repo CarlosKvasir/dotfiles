@@ -1,4 +1,6 @@
 {
+  "diagnostic.virtualText": false,
+  "diagnostic.checkCurrentLine": true,
   "suggest.noselect": false,
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
@@ -8,7 +10,9 @@
     "javascriptreact",
     "typescript.tsx",
     "graphql",
-    "elixir"
+    "elixir",
+    "css",
+    "golang"
   ],
   "codeLens.enable": true,
   "solargraph.useBundler": false,
@@ -16,11 +20,21 @@
     "elixirLS": {
       "command": "~/.elixir-ls/release/language_server.sh",
       "filetypes": ["elixir", "eelixir"]
+    },
+    "golang":{
+    "command": "gopls",
+    "rootPatterns": ["go.mod",".vim", ".git/", ".hg/"],
+    "filetypes": ["go"]
+    },
+    "terraform": {
+      "command": "terraform-lsp",
+      "filetypes": ["terraform", "tf"]
     }
   },
   "emmet.includeLanguages": {
     "vue-html": "html",
-    "javascript": "javascriptreact"
+    "javascript": "javascriptreact",
+    "erb": "html"
   },
   "diagnostic.messageTarget": "echo",
   "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/utils/snips"],
@@ -50,5 +64,7 @@
     "constructor": "  ",
     "value": "  ",
     "enumMember": "  "
-  }
+  },
+  "solargraph.formatting": true,
+  "solargraph.diagnostics": true
 }
