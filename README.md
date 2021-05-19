@@ -8,8 +8,15 @@ git clone git@github.com:carloskvasir/dotfiles.git .dotfiles
 cd .dotfiles
 stow nvim
 ```
+
+Install all asdf plugins and versions
+```zsh
+awk '{print $1}' ~/.tool-versions | xargs -I @@ asdf plugin add @@
+```
+
 Stow create symlinks using same path of .dotfiles
 
 Uses GNU Stow – https://www.gnu.org/software/stow/
 
 Configs from Carlos Lima (Kvasir)
+
