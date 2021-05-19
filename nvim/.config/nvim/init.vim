@@ -25,7 +25,6 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
-Plug 'editorconfig/editorconfig-vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'airblade/vim-gitgutter'   "Add gutter whit git status
@@ -36,6 +35,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'unblevable/quick-scope'
 Plug 'fatih/vim-go'
 Plug 'tpope/vim-rails'
+Plug 'eslint/eslint'
+Plug 'sgur/vim-editorconfig'
 call plug#end()
 
 " ----------------------------------------------------------

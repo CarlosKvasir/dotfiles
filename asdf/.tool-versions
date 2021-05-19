@@ -1,4 +1,4 @@
-nodejs lts
+nodejs lts latest
 erlang 23.0.3
 elixir 1.10.4-otp-23
 python 3.9-dev 2.7.18
@@ -13,3 +13,4 @@ rust 1.46.0
 neovim nightly
 tmux 3.1c
 crystal 1.0.0
+packer 1.7.2

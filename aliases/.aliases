@@ -28,8 +28,9 @@ mkcd ()
 }
 
 #. ~/.asdf/plugins/java/set-java-home.zsh
+#alias terraform='docker run --rm -it -v $(pwd):/app/ -w /app/ hashicorp/terraform:latest'
 
 #Config tmux open by default
-if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-    tmux attach -t default || tmux new -s default
-fi
+#if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+#    tmux attach -t default || tmux new -s default
+#fi

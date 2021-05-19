@@ -88,5 +88,4 @@ bindkey '^P'  fzy-proc-widget
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 source /home/carlos/.asdf/installs/rust/1.46.0/env
-export GOPATH="$HOME/go"
 export PATH="$PATH:${GOPATH//://bin:}/bin"
